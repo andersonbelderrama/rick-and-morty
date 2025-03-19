@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue'
 import Pagination from '@/components/Pagination.vue'
 import SearchFilter from '@/components/SearchFilter.vue'
 import CharacterModal from '@/components/CharacterModal.vue'
+import LoadingSpinner from '@/components/LoadingSpinner.vue'
 
 const characters = ref([])
 const searchName = ref('')
@@ -80,9 +81,7 @@ onMounted(() => {
     </div>
 
     <!-- Loading State -->
-    <div v-if="loading" class="flex justify-center items-center py-12">
-      <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-green-400"></div>
-    </div>
+    <LoadingSpinner v-if="loading" />
 
     <!-- Characters Grid -->
     <div
