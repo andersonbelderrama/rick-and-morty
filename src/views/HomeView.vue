@@ -12,6 +12,7 @@ const searchName = ref('')
 const searchStatus = ref('')
 const currentPage = ref(1)
 const totalPages = ref(0)
+const totalCharacters = ref(0)
 const loading = ref(false)
 const selectedCharacter = ref(null)
 const showModal = ref(false)
@@ -28,6 +29,7 @@ async function fetchCharacters() {
     const data = await response.json()
     characters.value = data.results
     totalPages.value = data.info.pages
+    totalCharacters.value = data.info.count
   } catch (error) {
     console.error('Error fetching characters:', error)
     characters.value = []
@@ -61,9 +63,12 @@ onMounted(() => {
     <!-- Header Section -->
     <div class="w-full mb-8">
       <div class="max-w-7xl mx-auto">
-        <h1 class="text-4xl font-bold text-center mb-8 text-green-400">
+        <h1 class="text-4xl font-bold text-center mb-4 text-green-400">
           Personagens de Rick and Morty
         </h1>
+        <p class="text-center mb-8 text-gray-400 text-lg">
+          Total de {{ totalCharacters }} personagens cadastrados
+        </p>
 
         <SearchFilter
           v-model:searchName="searchName"
