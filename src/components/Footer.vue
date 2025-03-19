@@ -1,4 +1,7 @@
 <script setup>
+import IconGithub from './icons/IconGithub.vue'
+import IconLinkedin from './icons/IconLinkedin.vue'
+
 const currentYear = new Date().getFullYear()
 </script>
 
