@@ -1,29 +1,63 @@
-# rick-and-morty
+# Rick and Morty
 
-This template should help get you started developing with Vue 3 in Vite.
+## 📝 Descrição do Projeto
 
-## Recommended IDE Setup
+Este é um projeto Vue 3 que utiliza a API do Rick and Morty para exibir informações sobre os personagens da série. O projeto foi desenvolvido utilizando Vue 3 e Vite como bundler.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 🚀 Requisitos do Sistema
 
-## Customize configuration
+- Node.js (versão 18 ou superior)
+- NPM (gerenciador de pacotes do Node.js)
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## 🔧 Configuração do Ambiente
 
-## Project Setup
+### IDE Recomendada
+
+- [VSCode](https://code.visualstudio.com/) com a extensão [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (desative a extensão Vetur caso esteja instalada)
+
+### Instalação
+
+1. Clone o repositório:
+
+```sh
+git clone https://github.com/andersonbelderrama/rick-and-morty.git
+cd rick-and-morty
+```
+
+2. Instale as dependências:
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+## 💻 Executando o Projeto
+
+### Ambiente de Desenvolvimento
+
+Para executar o projeto em modo de desenvolvimento com hot-reload:
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+Após executar o comando, o projeto estará disponível em `http://localhost:5173`
+
+### Build para Produção
+
+Para criar uma versão otimizada para produção:
 
 ```sh
 npm run build
 ```
+
+## 🛠️ Funcionalidades Implementadas
+
+- Listagem de personagens do Rick and Morty
+- Filtro de busca por nome e status
+- Modal com detalhes do personagem
+- Paginação
+- Interface responsiva
+
+## 🔍 Configuração Personalizada
+
+Para configurações adicionais do Vite, consulte a [Documentação de Referência do Vite](https://vitejs.dev/config/).
