@@ -40,7 +40,7 @@ Para executar o projeto em modo de desenvolvimento com hot-reload:
 npm run dev
 ```
 
-Após executar o comando, o projeto estará disponível em `http://localhost:5173`
+Após executar o comando, o projeto estará disponível em `http://localhost:5173/rick-and-morty/`
 
 ### Build para Produção
 

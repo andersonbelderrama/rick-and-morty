@@ -7,6 +7,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/rick-and-morty/',
   plugins: [vue(), vueDevTools(), tailwindcss()],
   resolve: {
     alias: {
