@@ -1,4 +1,7 @@
 <script setup>
+import IconArrowLeft from './icons/IconArrowLeft.vue'
+import IconArrowRight from './icons/IconArrowRight.vue'
+
 const props = defineProps({
   currentPage: {
     type: Number,
@@ -28,27 +31,27 @@ const getDisplayedPages = () => {
 </script>
 
 <template>
-  <div class="flex justify-center items-center gap-2 mt-8">
+  <div class="flex flex-wrap justify-center items-center gap-1 sm:gap-2 mt-8">
     <!-- Botão Anterior -->
     <button
       v-if="currentPage > 1"
       @click="emit('changePage', currentPage - 1)"
-      class="px-3 py-1 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors text-sm"
+      class="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors"
     >
-      Anterior
+      <IconArrowLeft />
     </button>
 
     <!-- Primeira página -->
     <button
       v-if="getDisplayedPages()[0] > 1"
       @click="emit('changePage', 1)"
-      class="px-3 py-1 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors text-sm"
+      class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors text-xs sm:text-sm"
     >
       1
     </button>
 
     <!-- Indicador de páginas omitidas no início -->
-    <span v-if="getDisplayedPages()[0] > 2" class="text-gray-400">...</span>
+    <span v-if="getDisplayedPages()[0] > 2" class="text-gray-400 text-xs sm:text-sm">...</span>
 
     <!-- Páginas numeradas -->
     <button
@@ -56,7 +59,7 @@ const getDisplayedPages = () => {
       :key="page"
       @click="emit('changePage', page)"
       :class="[
-        'px-3 py-1 rounded-lg transition-colors text-sm',
+        'px-4 py-2 rounded-lg transition-colors text-xs sm:text-sm',
         currentPage === page ? 'bg-green-400 text-gray-900' : 'bg-gray-800 hover:bg-gray-700',
       ]"
     >
@@ -66,7 +69,7 @@ const getDisplayedPages = () => {
     <!-- Indicador de páginas omitidas no final -->
     <span
       v-if="getDisplayedPages()[getDisplayedPages().length - 1] < totalPages - 1"
-      class="text-gray-400"
+      class="text-gray-400 text-xs sm:text-sm"
     >
       ...
     </span>
@@ -75,7 +78,7 @@ const getDisplayedPages = () => {
     <button
       v-if="getDisplayedPages()[getDisplayedPages().length - 1] < totalPages"
       @click="emit('changePage', totalPages)"
-      class="px-3 py-1 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors text-sm"
+      class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors text-xs sm:text-sm"
     >
       {{ totalPages }}
     </button>
@@ -84,9 +87,9 @@ const getDisplayedPages = () => {
     <button
       v-if="currentPage < totalPages"
       @click="emit('changePage', currentPage + 1)"
-      class="px-3 py-1 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors text-sm"
+      class="p-1.5 sm:p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors"
     >
-      Próximo
+      <IconArrowRight />
     </button>
   </div>
 </template>

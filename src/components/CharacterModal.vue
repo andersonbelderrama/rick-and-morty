@@ -1,4 +1,6 @@
 <script setup>
+import IconClose from './icons/IconClose.vue'
+
 const props = defineProps({
   character: {
     type: Object,
@@ -20,17 +22,21 @@ function closeModal() {
 <template>
   <div
     v-if="show"
-    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4"
+    class="fixed inset-0 backdrop-blur-sm bg-black/70 flex items-center justify-center p-4 transition-all duration-300"
     @click="closeModal"
   >
     <div
-      class="bg-gray-800 rounded-lg p-6 max-w-2xl w-full transform transition-transform duration-300"
+      class="bg-gray-800/95 rounded-lg p-6 max-w-2xl w-full transform transition-all duration-300 scale-100 shadow-xl border border-gray-700/50 hover:border-gray-600/50"
+      :class="{ 'scale-95 opacity-0': !show }"
       @click.stop
     >
       <div class="flex items-start justify-between mb-4">
-        <h2 class="text-2xl font-bold">{{ character?.name }}</h2>
-        <button @click="closeModal" class="text-gray-400 hover:text-white transition-colors">
-          ×
+        <h2 class="text-2xl font-bold text-green-400">{{ character?.name }}</h2>
+        <button
+          @click="closeModal"
+          class="text-gray-400 hover:text-green-400 transition-colors text-2xl"
+        >
+          <IconClose />
         </button>
       </div>
 

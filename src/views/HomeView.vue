@@ -5,6 +5,7 @@ import SearchFilter from '@/components/SearchFilter.vue'
 import CharacterModal from '@/components/CharacterModal.vue'
 import LoadingSpinner from '@/components/LoadingSpinner.vue'
 import NoResults from '@/components/NoResults.vue'
+import Footer from '@/components/Footer.vue'
 
 const characters = ref([])
 const searchName = ref('')
@@ -56,29 +57,31 @@ onMounted(() => {
 </script>
 
 <template>
-  <main class="min-h-screen bg-gray-900 text-white p-4">
-    <!-- Search Section -->
-    <div class="max-w-7xl mx-auto mb-8">
-      <h1 class="text-4xl font-bold text-center mb-8 text-green-400">
-        Personagens de Rick and Morty
-      </h1>
+  <main class="min-h-screen bg-gray-900 text-white p-4 flex flex-col">
+    <!-- Header Section -->
+    <div class="w-full mb-8">
+      <div class="max-w-7xl mx-auto">
+        <h1 class="text-4xl font-bold text-center mb-8 text-green-400">
+          Personagens de Rick and Morty
+        </h1>
 
-      <SearchFilter
-        v-model:searchName="searchName"
-        v-model:searchStatus="searchStatus"
-        @update:searchName="
-          () => {
-            currentPage = 1
-            fetchCharacters()
-          }
-        "
-        @update:searchStatus="
-          () => {
-            currentPage = 1
-            fetchCharacters()
-          }
-        "
-      />
+        <SearchFilter
+          v-model:searchName="searchName"
+          v-model:searchStatus="searchStatus"
+          @update:searchName="
+            () => {
+              currentPage = 1
+              fetchCharacters()
+            }
+          "
+          @update:searchStatus="
+            () => {
+              currentPage = 1
+              fetchCharacters()
+            }
+          "
+        />
+      </div>
     </div>
 
     <!-- Loading State -->
@@ -131,6 +134,9 @@ onMounted(() => {
     <!-- Pagination -->
     <Pagination :current-page="currentPage" :total-pages="totalPages" @change-page="changePage" />
 
+    <!-- Character Modal -->
     <CharacterModal :character="selectedCharacter" :show="showModal" @close="closeModal" />
+
+    <Footer />
   </main>
 </template>
